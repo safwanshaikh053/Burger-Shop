@@ -1,20 +1,16 @@
-// server.js
 const express = require('express');
 const fs = require('fs');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
-
-// ✅ Render (or any cloud) uses its own PORT variable — default 5000 for local
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000; // ✅ Important for Render
 
 // --- Middleware ---
 app.use(cors());
 app.use(bodyParser.json());
-
-// ✅ Serve all static files (HTML, CSS, JS, and images)
-app.use(express.static('public'));
+app.use('/public', express.static('public')); // Serve static files like images, CSS, JS
 
 // --- Burgers Endpoint ---
 app.get('/burgers', (req, res) => {
@@ -87,10 +83,12 @@ app.delete('/cart/:index', (req, res) => {
   });
 });
 
-// --- Default Route ---
-// This ensures index.html loads when you visit the site root
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+// --- Serve frontend (very important for Render) ---
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Default route: serve index.html for all non-API routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // --- Start Server ---

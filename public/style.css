@@ -1,0 +1,123 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e03e00; 
+  color: white;
+  padding: 10px 20px;
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links li {
+  cursor: pointer;
+}
+
+/* Burger Cards */
+.burger-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.burger-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  padding: 10px;
+  text-align: center;
+}
+
+.burger-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Cart Panel */
+.cart-panel {
+  position: fixed;
+  top: 0;
+  right: -350px; /* Hidden by default */
+  width: 300px;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+  padding: 20px;
+  transition: right 0.3s;
+  z-index: 1000;
+}
+
+.cart-panel.active {
+  right: 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cart-total {
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+#confirm-order {
+  width: 100%;
+  padding: 10px;
+  background: #32cd32; /* LimeGreen */
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.close-cart {
+  width: 100%;
+  padding: 8px;
+  background: #ff6347;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+/*.burger-card button { background-color: #ff4500; color: white; }*/
+
+.burger-card button {
+  background-color: #ff4500;   /* bright orange-red */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* Hover effect */
+.burger-card button:hover {
+  background-color: #e03e00;   /* slightly darker on hover */
+  transform: scale(1.05);      /* subtle pop effect */
+}
+

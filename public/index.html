@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burger Shop 🍔</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <h1>Burger Khayega? 🍔</h1>
+  <ul class="nav-links">
+    <!-- <li><a href="#">Home</a></li>
+    <li><a href="#">Menu</a></li> -->
+    <li><a href="login.html">Login</a></li>
+    <li class="cart-button" onclick="toggleCartPanel()">
+      🛒 Cart (<span id="cart-count">0</span>)
+    </li>
+  </ul>
+</nav>
+
+<!-- Burger Cards -->
+<div class="burger-container" id="burger-container"></div>
+
+<!-- Cart Panel -->
+<div class="cart-panel" id="cart-panel">
+  <h2>Your Cart 🛒</h2>
+  <div id="cart"></div>
+  <div class="cart-total">
+    Total: ₹<span id="cart-total">0</span>
+  </div>
+  <button id="confirm-order" onclick="confirmOrder()">Confirm Order</button>
+  <button class="close-cart" onclick="toggleCartPanel()">Close</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+<!-- Log OUt Button -->

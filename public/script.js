@@ -19,7 +19,7 @@ function loadBurgers() {
         container.appendChild(card);
       });
     })
-    .catch(err => console.error("❌ Error loading burgers:", err));
+    .catch(err => console.error(" Error loading burgers:", err));
 }
 
 // Add to cart
@@ -33,7 +33,7 @@ function addToCart(index) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(burger)
       }).then(() => showCart())
-        .catch(err => console.error("❌ Error adding to cart:", err));
+        .catch(err => console.error(" Error adding to cart:", err));
     });
 }
 
@@ -67,14 +67,14 @@ function showCart() {
       });
       totalSpan.textContent = total;
     })
-    .catch(err => console.error("❌ Error showing cart:", err));
+    .catch(err => console.error(" Error showing cart:", err));
 }
 
 // Remove item from cart
 function removeFromCart(index) {
   fetch(`${API_BASE}/cart/${index}`, { method: 'DELETE' })
     .then(() => showCart())
-    .catch(err => console.error("❌ Error removing item:", err));
+    .catch(err => console.error(" Error removing item:", err));
 }
 
 // Toggle cart panel
@@ -84,7 +84,7 @@ function toggleCartPanel() {
 
 // Mock checkout
 function confirmOrder() {
-  alert("✅ Order confirmed! Redirecting to payment page....");
+  alert(" Order confirmed! Redirecting to payment page....");
   fetch(`${API_BASE}/cart`)
     .then(res => res.json())
     .then(cart => {
